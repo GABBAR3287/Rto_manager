@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 //import com.google.firebase.database.DatabaseReference;
@@ -25,6 +26,10 @@ public class MainActivity extends AppCompatActivity
     EditText editText_password;
     EditText editText_voterid;
     EditText editText_pno;
+
+
+    TextView testlic;
+
 
     Button save_button;
 
@@ -47,6 +52,16 @@ public class MainActivity extends AppCompatActivity
 
 
         save_button = (Button) findViewById(R.id.button2);
+
+
+        testlic=findViewById(R.id.textView16);
+        testlic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i= new Intent(MainActivity.this,learners_licence_screen.class);
+                startActivity(i);
+            }
+        });
 
 
         save_button.setOnClickListener(new View.OnClickListener() {

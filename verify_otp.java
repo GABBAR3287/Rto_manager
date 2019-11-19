@@ -45,7 +45,7 @@ public class verify_otp extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verify_otp);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
 
 
         //initializing objects
@@ -165,11 +165,14 @@ public class verify_otp extends AppCompatActivity
                             String id = databaseReference.push().getKey();
                             UserInformation userInformation = new UserInformation(id, name, username, dob, email, password, voterid, mobile);
                             databaseReference.child(id).setValue(userInformation);
+
+
+
                             Toast.makeText(getApplicationContext(), "Stored successfully", Toast.LENGTH_LONG).show();
 
 
                             //verification successful we will start the profile activity
-                            Intent intent = new Intent(verify_otp.this, user_Login.class);
+                            Intent intent = new Intent(verify_otp.this, Menu.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
 
